@@ -6,8 +6,9 @@ from keras.optimizers import SGD
 
 IMAGE_WIDTH, IMAGE_HEIGHT = 299, 299 #fixed size for InceptionV3
 EPOCH = 5
-TOTAL_SAMPLES = 10
-VAL_SAMPLES = 10
+TOTAL_SAMPLES = 4
+VAL_SAMPLES = 4
+BATCH_SIZE = 10
 
 def create_model():
     # data prep
@@ -32,12 +33,12 @@ def create_model():
     train_generator = train_datagen.flow_from_directory(
         './dataset',
         target_size=(IMAGE_WIDTH, IMAGE_HEIGHT),
-        batch_size=batch_size)
+        batch_size=BATCH_SIZE)
 
     validation_generator = test_datagen.flow_from_directory(
         './dataset',
         target_size=(IMAGE_WIDTH, IMAGE_HEIGHT),
-        batch_size=batch_size)
+        batch_size=BATCH_SIZE)
 
     # create the base pre-trained model
     base_model = InceptionV3(weights='imagenet', include_top=False)
