@@ -12,7 +12,7 @@ from keras.utils import np_utils
 
 IMAGE_WIDTH, IMAGE_HEIGHT = 299, 299 #fixed size for InceptionV3
 NUM_CLASSES = 3
-EPOCH = 5
+EPOCH = 25
 TOTAL_SAMPLES = sum([len(files) for r, d, files in os.walk('./dataset')])
 VAL_SAMPLES = 4
 BATCH_SIZE = 32

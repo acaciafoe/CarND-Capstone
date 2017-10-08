@@ -1,1 +1,4 @@
 dataset
+*.zip
+output/**/*.jpg
+*.model
