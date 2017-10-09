@@ -37,6 +37,7 @@ class TLClassifierDL(object):
         return TrafficLight.RED if prediction == TrafficLight.RED else TrafficLight.UNKNOWN
 
     def preprocess(self, input_img):
+        input_img = cv2.cvtColor(input_img, cv2.COLOR_BGR2RGB)
         input_img = cv2.resize(input_img, (IMAGE_WIDTH, IMAGE_HEIGHT))
         input_img = img_to_array(input_img)
         input_img = np.expand_dims(input_img, axis=0)
